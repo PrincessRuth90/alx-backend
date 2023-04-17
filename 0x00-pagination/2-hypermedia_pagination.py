@@ -34,8 +34,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """get page function"""
-        assert type(page) == int or type(page_size) == int
-        assert page > 0 or page_size > 0
+        assert type(page) == int and type(page_size) == int
+        assert page > 0 and page_size > 0
 
         start, end = self.index_range(page, page_size)
 
@@ -48,10 +48,8 @@ class Server:
 
         return data[start:end]
 
-def get_hyper(self, page: int, page_size: int) -> dict:
-        """
-        Hypermedia pagination
-        """
+    def get_hyper(self, page: int, page_size: int) -> dict:
+        """Hypermedia pagination"""
         data = self.get_page(page, page_size)
         size_all_pages = math.ceil(len(self.get_dataset()) / page_size)
         next_page = page + 1 if page + 1 < size_all_pages else None
