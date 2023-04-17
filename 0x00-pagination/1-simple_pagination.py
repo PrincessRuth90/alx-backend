@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Simple pagination
-"""
+"""Simple Pagination"""
 
 
 import csv
@@ -17,7 +15,7 @@ class Server:
     def __init__(self):
         self.__dataset = None
 
-    def dataset(self) -> List[List]:
+    def get_dataset(self) -> List[List]:
         """Cached dataset
         """
         if self.__dataset is None:
@@ -28,15 +26,13 @@ class Server:
 
         return self.__dataset
 
-
-    def index_range(page: int, page_size: int) -> tuple:
-    """ return a tuple of size two containing a start index and an end index
+    def index_range(self, page: int, page_size: int) -> tuple:
+        """
+        return a tuple of size two containing a start index and an end index
     """
-
-    start_index = (page - 1) * page_size
-    end_index = start_index + page_size
-    return (start_index, end_index)
-
+        start_index = (page - 1) * page_size
+        end_index = start_index + page_size
+        return (start_index, end_index)
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         assert type(page) == int or type(page_size) == int
