@@ -27,9 +27,7 @@ class Server:
         return self.__dataset
 
     def index_range(self, page: int, page_size: int) -> tuple:
-        """
-        return a tuple of size two containing a start index and an end index
-    """
+        """return a tuple of size two containing a start index and an end index"""
         start_index = (page - 1) * page_size
         end_index = start_index + page_size
         return (start_index, end_index)
@@ -49,7 +47,6 @@ class Server:
             return list_result
 
         return data[start:end]
-
 
 def get_hyper(self, page: int, page_size: int) -> dict:
         """
