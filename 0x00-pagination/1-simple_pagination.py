@@ -35,6 +35,7 @@ class Server:
         return (start_index, end_index)
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """ get page """
         assert type(page) == int or type(page_size) == int
         assert page > 0 or page_size > 0
 
