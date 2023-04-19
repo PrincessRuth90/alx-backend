@@ -6,7 +6,6 @@ from collections import deque
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-
 class MRUCache(BaseCaching):
     """MRUCache method"""
 
